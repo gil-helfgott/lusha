@@ -18,8 +18,8 @@ export async function saveUrl(url: string, html: string) {
 export async function filterUrlsAlreadyInDb(urls: string[]): Promise<string[]> {
     const mongo = await getMongoClient('urls');
     const alreadyInDb =  await mongo.collection('urls').find({
-        urls: {$in: urls}
-    }).toArray();
+        url: {$in: urls}
+    }).project({url: 1, _id: 0}).toArray();
 
     const alreadyInDbHash = keyBy(alreadyInDb, doc => doc.url);
 

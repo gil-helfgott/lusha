@@ -3,6 +3,7 @@ import Joi from "joi";
 import {validateBody} from "./lib/middlewares/validate";
 import {json} from "body-parser";
 import {insertToQueue} from "./lib/dal/queue";
+import {listenToQueue} from "./lib/logic/parse";
 const port = 5000;
 export const app = express();
 
@@ -20,4 +21,6 @@ app.post('/parse',
 app.listen(port, () => {
     console.log(`Listening on http://localhost:${port}`);
 });
+
+listenToQueue();
 

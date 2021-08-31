@@ -36,3 +36,4 @@ In order to run tests you need to "npm run test"
 
 # Things that can be improved
 We need logging, monitoring, better error handling, CI/CD...
+Maybe it's a good idea to split the API part and the parse part into different processes
